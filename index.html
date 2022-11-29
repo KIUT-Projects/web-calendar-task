@@ -8,7 +8,12 @@
         <title>Calendar Tasks - Web application</title>
 
         <link href="vendor/bootstrap-5.2.3-dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/calendar.css" rel="stylesheet">
         <link href="assets/app.css" rel="stylesheet">
+        
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+        
 
     </head>
 
@@ -61,7 +66,7 @@
                           <div class="row">
                             <div class="col-12" style="text-align: right;">
                                 <button type="button" type="reset" class="btn btn-danger">Tozalash</button>
-                                <button type="button" onclick="add()" class="btn btn-success">Saqlab qoyish</button>
+                                <button type="button" onclick="create()" class="btn btn-success">Saqlab qoyish</button>
                             </div>
                           </div>
                     </form>
@@ -72,10 +77,15 @@
                     <div class="col-md-6">
                         <h2>Kalendar</h2>
 
-                        <button class="btn btn-primary" id="prev-btn" hidden>Prev month</button>
-                        <button class="btn btn-primary" id="next-btn" hidden>Next month</button>
-
-                        <div id="js-kalendar"></div>
+                        <div id="calendar">
+                            <div id="calendar_header">
+                                <i class="icon-chevron-left"></i>          
+                                <h1></h1>
+                                <i class="icon-chevron-right"></i>         
+                            </div>
+                            <div id="calendar_weekdays"></div>
+                            <div id="calendar_content"></div>
+                          </div>
                         
                         <hr>
                         
@@ -89,12 +99,14 @@
             </main>
 
             <footer class="pt-5 my-5 text-muted border-top">
-                Created by the Bootstrap team &middot; &copy; 2022
+                Umarov Kamoliddin - ISE-51U group
             </footer>
 
         </div>
 
+        <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/calendar.js"></script>
         <script src="assets/app.js"></script>
 
     </body>
