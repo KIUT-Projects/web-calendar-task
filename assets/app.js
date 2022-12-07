@@ -1,9 +1,3 @@
-// let allReminders = [{
-//     title: '',
-//     date: '',
-//     time: '',
-// }];
-
 let allReminders = [];
 
 function create() {
@@ -19,7 +13,7 @@ function create() {
             <strong>Xatolik!</strong> Forma toliq kiritilmagan.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-`;
+        `;
     }
 
     for (let i = 1; i < allReminders.length; i++) {
@@ -33,7 +27,10 @@ function create() {
         }
     }
 
+    let remindersLength = allReminders.length++;
+
     allReminders.push({
+        id: remindersLength,
         title: text,
         date: date,
         time: time,
@@ -45,12 +42,57 @@ function create() {
     document.getElementById('inputNomi').value=""
     document.getElementById('inputKun').value=""
     document.getElementById('inputSoat').value=""
-    document.getElementById('inputDaraja').value=""
+    document.getElementById('inputDaraja').value="2"
     
 }
 
-function edit(el){
-    
+function edit(id){
+    console.log(id);
+
+    let reminder = 0;
+
+    document.getElementById('inputUpdateNomi').value="asa"
+    document.getElementById('inputUpdateKun').value=""
+    document.getElementById('inputUpdateSoat').value=""
+    document.getElementById('inputUpdateDaraja').value="2"
+
+
+    $(document).ready(function() {
+        $('#updateReminder').modal('show');
+    });
+}
+
+function update(el){
+    let id   = document.getElementById('inputUpdateID').value;
+    let text = document.getElementById('inputUpdateNomi').value;
+    let date = document.getElementById('inputUpdateKun').value;
+    let time = document.getElementById('inputUpdateSoat').value;
+    let priority = document.getElementById('inputUpdateDaraja').value;
+
+    console.log(id);
+    console.log(text);
+
+    /*allReminders.forEach(function (reminder, index) {
+
+    });*/
+
+    /*({
+        title: text,
+        date: date,
+        time: time,
+        priority: priority
+    })*/
+
+    $(document).ready(function() {
+        $('#updateReminder').modal('hide');
+    });
+
+    showReminders();
+
+}
+
+function getReminder(id){
+    return allReminders[id];
 }
 
 function showReminders(){
@@ -60,30 +102,37 @@ function showReminders(){
             <tr>
                 <th scope="col">Nomi</th>
                 <th scope="col">Kun</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Soat</th>
+                <th scope="col">Muhimlik</th>
+                <th scope="col"></th>
             </tr>
-    </thead>
-  <tbody>`;
+        </thead>
+    <tbody>`;
+
+    /*allReminders.forEach(function(reminder, index){
+        //console.log(index);
+        console.log(reminder);
+    })*/
 
     for(reminder of allReminders){
-        console.log(reminder)
+        //console.log(index);
+        console.log(reminder);
         data += `<tr>
-        <th scope="row">` + reminder.title + `</th>
-        <td>` + reminder.date + `</td>
-        <td>` + reminder.time + `</td>
-        <td>` + reminder.priority + `</td>
-      </tr>`
+            <th scope="row">` + reminder.title + `</th>
+            <td>` + reminder.date + `</td>
+            <td>` + reminder.time + `</td>
+            <td>` + reminder.priority + `</td>
+            <td><a onclick="edit(` + reminder.id + `)">[Edit]</a></td>
+        </tr>`;
     }
 
     data += `</tbody></table>`;
 
     document.querySelector('#js-qaydlar').innerHTML = data;
 
-    console.log(allReminders)
 }
 
 
 document.addEventListener("DOMContentLoaded", function(event){
-    showCalendar();
-  });
+    //showCalendar();
+});

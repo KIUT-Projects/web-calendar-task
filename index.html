@@ -21,6 +21,9 @@
         #calendar_header>i {
             margin-top: -18px !important;
         }
+        h2{
+            padding-bottom: 2rem;
+        }
     </style>
 
     <div class="col-lg-10 mx-auto p-4 py-md-5">
@@ -112,6 +115,88 @@
         <footer class="pt-5 my-5 text-muted border-top">
             Umarov Kamoliddin - ISE-51U group
         </footer>
+
+
+        <div class="modal fade" id="updateReminder" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-12" style="text-align: right;">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="col-12" style="text-align: center;">
+                                <h4>Qaydni o'zgartirish</h4>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="row">
+
+
+                                    <form class="form-group">
+
+                                        <input type="hidden" value="" name="inputUpdateID" id="inputUpdateID">
+
+                                        <div class="mb-3">
+                                            <label for="inputUpdateNomi" class="form-label">Nomi:</label>
+                                            <input type="text" class="form-control" id="inputUpdateNomi" name="inputNomi" placeholder="Qayd nomi" required>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="inputUpdateKun" class="form-label">Kun:</label>
+                                            <input type="date" class="form-control" id="inputUpdateKun" name="inputKun" required>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="inputUpdateSoat" class="form-label">Soat:</label>
+                                            <input type="time" class="form-control" id="inputUpdateSoat" name="inputSoat" required>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="inputUpdateDaraja" class="form-label">Darajasi:</label>
+                                            <select id="inputUpdateDaraja" class="form-select" name="inputUpdateDaraja" required>
+                                                <option disabled>Birini tanlang</option>
+                                                <option value="1">Muhim !!!</option>
+                                                <option selected value="2">O'rta</option>
+                                                <option value="3">Muhim emas</option>
+                                            </select>
+                                            <div class="form-text">
+                                                Muhimlik darajasini tanlashingiz kerak, bu yerda 3 xil daraja mavjud.
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12" style="text-align: right;">
+                                                <button type="button" type="reset" class="btn btn-danger">Tozalash</button>
+                                                <button type="button" onclick="update(this)" class="btn btn-success">Saqlab qoyish</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-12" style="text-align: center;">
+                                <button type="button" class="btn btn-danger" @click="clearFromCart()">
+                                    <i class="fa-solid fa-xmark"></i>
+                                    Bekor qilish
+                                </button>
+                                <button v-if="cart.length" type="button" class="btn btn-success" @click="orderNow()">
+                                    <i class="fa-solid fa-check"></i>
+                                    Buyurtma qilish
+                                </button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
