@@ -15,7 +15,7 @@ https://codepen.io/B8bop/pen/DOQJyJ
 -
 
 ## 🌐 Live Preview
--
+https://kiut-projects.github.io/web-calendar-task/
 
 ## 🖼 Screenshots:
 ![](.github/screenshot.png)
