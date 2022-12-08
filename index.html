@@ -167,7 +167,7 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-12" style="text-align: right;">
+                                            <div class="col-12" style="text-align: center;">
                                                 <button type="button" type="reset" class="btn btn-danger">Tozalash</button>
                                                 <button type="button" onclick="update(this)" class="btn btn-success">Saqlab qoyish</button>
                                             </div>
@@ -178,17 +178,6 @@
 
 
                                 </div>
-                            </div>
-
-                            <div class="col-12" style="text-align: center;">
-                                <button type="button" class="btn btn-danger" @click="clearFromCart()">
-                                    <i class="fa-solid fa-xmark"></i>
-                                    Bekor qilish
-                                </button>
-                                <button v-if="cart.length" type="button" class="btn btn-success" @click="orderNow()">
-                                    <i class="fa-solid fa-check"></i>
-                                    Buyurtma qilish
-                                </button>
                             </div>
                         </div>
 

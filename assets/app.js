@@ -27,7 +27,7 @@ function create() {
         }
     }
 
-    let remindersLength = allReminders.length++;
+    let remindersLength = (allReminders.length + 1) ?? 0;
 
     allReminders.push({
         id: remindersLength,
@@ -100,6 +100,7 @@ function showReminders(){
     var data = `<table class="table table-striped table-hover">
         <thead>
             <tr>
+                <th scope="col">#</th>
                 <th scope="col">Nomi</th>
                 <th scope="col">Kun</th>
                 <th scope="col">Soat</th>
@@ -118,7 +119,8 @@ function showReminders(){
         //console.log(index);
         console.log(reminder);
         data += `<tr>
-            <th scope="row">` + reminder.title + `</th>
+            <th scope="row">` + reminder.id + `</th>
+            <td>` + reminder.title + `</td>
             <td>` + reminder.date + `</td>
             <td>` + reminder.time + `</td>
             <td>` + reminder.priority + `</td>
