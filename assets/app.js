@@ -126,6 +126,20 @@ function update(){
 
 }
 
+function clearFormCreate(){
+    document.getElementById('inputNomi').value = '';
+    document.getElementById('inputKun').value = '';
+    document.getElementById('inputSoat').value = '';
+    document.getElementById('inputDaraja').value = '';
+}
+
+function clearFormUpdate(){
+    document.getElementById('inputUpdateNomi').value = '';
+    document.getElementById('inputUpdateKun').value = '';
+    document.getElementById('inputUpdateSoat').value = '';
+    document.getElementById('inputUpdateDaraja').value = '';
+}
+
 function getReminder(globID){
     let reminder;
     let id = parseInt(globID);
@@ -178,7 +192,6 @@ function showReminders(){
 
     document.querySelector('#js-qaydlar').innerHTML = data;
 }
-
 
 document.addEventListener("DOMContentLoaded", function(event){
     showReminders();
