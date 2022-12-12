@@ -63,3 +63,19 @@
 body{
   background-color: #fff;
 }
+#calendar_header>i {
+    margin-top: -18px !important;
+}
+h4{
+    padding-bottom: 2rem;
+}
+header{
+    place-content: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+header > a >i{
+    padding: 5px 20px;
+    size: 50px;
+    font-size: 20px;
+}

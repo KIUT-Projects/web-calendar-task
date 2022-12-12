@@ -56,18 +56,15 @@ function create() {
 }
 
 function edit(id){
-    console.log(id);
-
     let reminder = getReminder(id);
 
-    console.log('reminder ID: ' +id);
-    console.log(reminder);
-
+    document.getElementById('textUpdateID').textContent = reminder.id
     document.getElementById('inputUpdateID').value = reminder.id
     document.getElementById('inputUpdateNomi').value = reminder.title
     document.getElementById('inputUpdateKun').value = reminder.date
     document.getElementById('inputUpdateSoat').value = reminder.time
     document.getElementById('inputUpdateDaraja').value = reminder.priority
+    document.querySelector('.update-error').innerHTML = '';
 
 
     $(document).ready(function() {
@@ -82,11 +79,18 @@ function update(){
     let time = document.getElementById('inputUpdateSoat').value;
     let priority = document.getElementById('inputUpdateDaraja').value;
     let id = parseInt(reminderID);
+    let error = document.querySelector('.update-error');
 
-    console.log(id);
-    console.log(text);
+    if (text == '' || date == '' || time == '' || priority == '') {
+        return error.innerHTML = `
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Xatolik!</strong> Forma toliq kiritilmagan.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        `;
+    }
 
-    /*for (let i = 1; i < allReminders.length; i++) {
+    for (let i = 1; i < allReminders.length; i++) {
         if (date == allReminders[i].date && time == allReminders[i].time) {
             return error.innerHTML = `
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -95,7 +99,7 @@ function update(){
             </div>
         `;
         }
-    }*/
+    }
 
     let newData = {
         id: id,
@@ -107,18 +111,10 @@ function update(){
 
     let needleIndex;
     allReminders.map((reminder, index) => {
-        console.log('reminder.id:')
-        console.log(reminder.id)
-        console.log('index:')
-        console.log(index)
-        console.log('id:')
-        console.log(id)
         if (reminder.id === id){
             needleIndex = index;
         }
     });
-
-    console.log('need: '+needleIndex);
 
     allReminders[needleIndex] = newData;
 
@@ -145,9 +141,7 @@ function getPriority(globID){
     let text;
     let id = parseInt(globID);
     reminderTypes.map((type) => {
-        console.log(type)
         if (type.id === id){
-            console.log('success' + id)
             text = type.title;
         }
     });
@@ -169,32 +163,23 @@ function showReminders(){
         </thead>
     <tbody>`;
 
-    /*allReminders.forEach(function(reminder, index){
-        //console.log(index);
-        console.log(reminder);
-    })*/
-
     for(reminder of allReminders){
-        //console.log(index);
-        //console.log(reminder);
         data += `<tr>
             <th scope="row">` + reminder.id + `</th>
             <td>` + reminder.title + `</td>
             <td>` + reminder.date + `</td>
             <td>` + reminder.time + `</td>
             <td>` + getPriority(reminder.priority) + `</td>
-            <td><a onclick="edit(` + reminder.id + `)">[Edit]</a></td>
+            <td><a class="btn btn-sm btn-outline-info" onclick="edit(` + reminder.id + `)"><i class="fas fa-edit"></i> Taxrirlash</a></td>
         </tr>`;
     }
 
     data += `</tbody></table>`;
 
     document.querySelector('#js-qaydlar').innerHTML = data;
-
 }
 
 
 document.addEventListener("DOMContentLoaded", function(event){
-    //showCalendar();
     showReminders();
 });
