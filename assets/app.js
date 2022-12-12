@@ -1,4 +1,13 @@
-let allReminders = [];
+let allReminders = [
+    { id: 1, title: "1 chi eslatma", date: '2022-12-11', time: '15:30', priority: '2' },
+    { id: 2, title: '2 chi eslatma', date: '2022-12-12', time: '21:40', priority: '1' }
+];
+
+let reminderTypes = [
+    { id: 1, title: "Muhim !!!"},
+    { id: 2, title: "O'rta"},
+    { id: 3, title: "Muhim emas"}
+];
 
 function create() {
     let text = document.getElementById('inputNomi').value;
@@ -49,12 +58,16 @@ function create() {
 function edit(id){
     console.log(id);
 
-    let reminder = 0;
+    let reminder = getReminder(id);
 
-    document.getElementById('inputUpdateNomi').value="asa"
-    document.getElementById('inputUpdateKun').value=""
-    document.getElementById('inputUpdateSoat').value=""
-    document.getElementById('inputUpdateDaraja').value="2"
+    console.log('reminder ID: ' +id);
+    console.log(reminder);
+
+    document.getElementById('inputUpdateID').value = reminder.id
+    document.getElementById('inputUpdateNomi').value = reminder.title
+    document.getElementById('inputUpdateKun').value = reminder.date
+    document.getElementById('inputUpdateSoat').value = reminder.time
+    document.getElementById('inputUpdateDaraja').value = reminder.priority
 
 
     $(document).ready(function() {
@@ -62,26 +75,52 @@ function edit(id){
     });
 }
 
-function update(el){
-    let id   = document.getElementById('inputUpdateID').value;
+function update(){
+    let reminderID   = document.getElementById('inputUpdateID').value;
     let text = document.getElementById('inputUpdateNomi').value;
     let date = document.getElementById('inputUpdateKun').value;
     let time = document.getElementById('inputUpdateSoat').value;
     let priority = document.getElementById('inputUpdateDaraja').value;
+    let id = parseInt(reminderID);
 
     console.log(id);
     console.log(text);
 
-    /*allReminders.forEach(function (reminder, index) {
+    /*for (let i = 1; i < allReminders.length; i++) {
+        if (date == allReminders[i].date && time == allReminders[i].time) {
+            return error.innerHTML = `
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Xatolik!</strong> Bu kunga qaydlar kiritilgan.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `;
+        }
+    }*/
 
-    });*/
-
-    /*({
+    let newData = {
+        id: id,
         title: text,
         date: date,
         time: time,
         priority: priority
-    })*/
+    };
+
+    let needleIndex;
+    allReminders.map((reminder, index) => {
+        console.log('reminder.id:')
+        console.log(reminder.id)
+        console.log('index:')
+        console.log(index)
+        console.log('id:')
+        console.log(id)
+        if (reminder.id === id){
+            needleIndex = index;
+        }
+    });
+
+    console.log('need: '+needleIndex);
+
+    allReminders[needleIndex] = newData;
 
     $(document).ready(function() {
         $('#updateReminder').modal('hide');
@@ -91,8 +130,28 @@ function update(el){
 
 }
 
-function getReminder(id){
-    return allReminders[id];
+function getReminder(globID){
+    let reminder;
+    let id = parseInt(globID);
+    allReminders.map((localReminder) => {
+        if (localReminder.id === id){
+            reminder = localReminder;
+        }
+    });
+    return reminder;
+}
+
+function getPriority(globID){
+    let text;
+    let id = parseInt(globID);
+    reminderTypes.map((type) => {
+        console.log(type)
+        if (type.id === id){
+            console.log('success' + id)
+            text = type.title;
+        }
+    });
+    return text;
 }
 
 function showReminders(){
@@ -117,13 +176,13 @@ function showReminders(){
 
     for(reminder of allReminders){
         //console.log(index);
-        console.log(reminder);
+        //console.log(reminder);
         data += `<tr>
             <th scope="row">` + reminder.id + `</th>
             <td>` + reminder.title + `</td>
             <td>` + reminder.date + `</td>
             <td>` + reminder.time + `</td>
-            <td>` + reminder.priority + `</td>
+            <td>` + getPriority(reminder.priority) + `</td>
             <td><a onclick="edit(` + reminder.id + `)">[Edit]</a></td>
         </tr>`;
     }
@@ -137,4 +196,5 @@ function showReminders(){
 
 document.addEventListener("DOMContentLoaded", function(event){
     //showCalendar();
+    showReminders();
 });

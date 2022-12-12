@@ -5,8 +5,9 @@ $(function () {
       var r = 0;
       var u = false;
       l.empty();
+      // 6 - dushanba, 0 - yakshanbadan
       while (!u) {
-        if (s[r] == e[0].weekday) {
+        if (s[r] == e[6].weekday) {
           u = true;
         } else {
           l.append('<div class="blank"></div>');
@@ -56,7 +57,7 @@ $(function () {
         });
       n.find("#calendar_header")
         .css({ height: e * (1 / 7) + "px" })
-        .find('i[class^="icon-chevron"]')
+        .find('i.fa-solid')
         .css("line-height", e * (1 / 7) + "px");
     }
     function v(e, t) {
@@ -81,27 +82,27 @@ $(function () {
     var n = 9;
     var r = [];
     var i = [
-      "JANUARY",
-      "FEBRUARY",
-      "MARCH",
-      "APRIL",
+      "YANVAR",
+      "FEVRAL",
+      "MART",
+      "APREL",
       "MAY",
-      "JUNE",
-      "JULY",
-      "AUGUST",
-      "SEPTEMBER",
-      "OCTOBER",
-      "NOVEMBER",
-      "DECEMBER"
+      "IYUN",
+      "IYUL",
+      "AVGUST",
+      "SENTYABR",
+      "OKTYABR",
+      "NOYABR",
+      "DEKABR"
     ];
     var s = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday"
+      "Dushanba",
+      "Seshanba",
+      "Chorshanba",
+      "Payshanba",
+      "Juma",
+      "Shanba",
+      "Yakshanba"
     ];
     var o = [
       "#16a085",
@@ -123,7 +124,7 @@ $(function () {
     var l = u.find("#calendar_content");
     b();
     c();
-    a.find('i[class^="icon-chevron"]').on("click", function () {
+    a.find('i.fa-solid').on("click", function () {
       var e = $(this);
       var r = function (e) {
         n = e == "next" ? n + 1 : n - 1;

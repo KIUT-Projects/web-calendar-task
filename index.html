@@ -12,8 +12,7 @@
     <link href="assets/calendar.css" rel="stylesheet">
     <link href="assets/app.css" rel="stylesheet">
 
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
 
 <body>
 
@@ -30,7 +29,8 @@
 
         <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
             <a href="#" class="d-flex align-items-center text-dark text-decoration-none">
-                <span class="fs-4">Calendar Tasks</span>
+                <i class="fa-solid fa-chevron-left"></i>
+                <span class="fs-4">Onlayn kalendar</span>
             </a>
         </header>
 
@@ -90,9 +90,9 @@
 
                     <div id="calendar">
                         <div id="calendar_header">
-                            <i class="icon-chevron-left"></i>
+                            <i class="fa-solid fa-chevron-left"></i>
                             <h1></h1>
-                            <i class="icon-chevron-right"></i>
+                            <i class="fa-solid fa-chevron-right"></i>
                         </div>
                         <div id="calendar_weekdays"></div>
                         <div id="calendar_content"></div>
@@ -140,17 +140,17 @@
 
                                         <div class="mb-3">
                                             <label for="inputUpdateNomi" class="form-label">Nomi:</label>
-                                            <input type="text" class="form-control" id="inputUpdateNomi" name="inputNomi" placeholder="Qayd nomi" required>
+                                            <input type="text" class="form-control" id="inputUpdateNomi" name="inputUpdateNomi" placeholder="Qayd nomi" required>
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="inputUpdateKun" class="form-label">Kun:</label>
-                                            <input type="date" class="form-control" id="inputUpdateKun" name="inputKun" required>
+                                            <input type="date" class="form-control" id="inputUpdateKun" name="inputUpdateKun" required>
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="inputUpdateSoat" class="form-label">Soat:</label>
-                                            <input type="time" class="form-control" id="inputUpdateSoat" name="inputSoat" required>
+                                            <input type="time" class="form-control" id="inputUpdateSoat" name="inputUpdateSoat" required>
                                         </div>
 
                                         <div class="mb-3">

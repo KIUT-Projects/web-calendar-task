@@ -68,10 +68,15 @@ body {
     float: left;
     width: 70%;
   }
-  i[class^="icon-chevron"] {
+  i[class^="fa-chevron"] {
     color: #ffffff;
     float: left;
     width: 15%;
     border-radius: 50%;
   }
-  
+  i.fa-solid{
+    color: #ffffff;
+    float: left;
+    width: 15%;
+    border-radius: 50%;
+  }
