@@ -19,8 +19,8 @@ Font-awesome v6.2.1
 
 jQuery v2.1.3
 
-## 📂 Download Source Code (v1.0):
-Source: https://github.com/KIUT-Projects/web-calendar-task/archive/refs/tags/v1.0.zip
+## 📂 Download Source Code (v1.1):
+Source: https://github.com/KIUT-Projects/web-calendar-task/archive/refs/tags/v1.1.zip
 
 ## 🌐 Live Preview
 Live: https://kiut-projects.github.io/web-calendar-task
